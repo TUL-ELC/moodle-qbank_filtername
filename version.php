@@ -19,6 +19,7 @@
  *
  * @package    qbank_filtername
  * @author     Mateusz Grzeszczak <mateusz.grzeszczak@p.lodz.pl>
+ * @author     Mateusz Walczak <mateusz.walczak@p.lodz.pl>
  * @copyright  2024 TUL E-Learning Center
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -26,7 +27,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'qbank_filtername';
-$plugin->version   = 2024042200;
-$plugin->requires  = 2024041600;
-$plugin->maturity = MATURITY_ALPHA;
-$plugin->release = '0.1';
+$plugin->version   = 2024090900;
+$plugin->requires  = 2023100900;
+$plugin->maturity = MATURITY_BETA;
+$plugin->release = '1.0';
