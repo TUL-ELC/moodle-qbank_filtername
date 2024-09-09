@@ -20,10 +20,11 @@ use core_question\local\bank\plugin_features_base;
 use core_question\local\bank\view;
 
 /**
- * Class columns is the entrypoint for the columns.
+ * Defines plugin features.
  *
  * @package    qbank_filtername
  * @author     Mateusz Grzeszczak <mateusz.grzeszczak@p.lodz.pl>
+ * @author     Mateusz Walczak <mateusz.walczak@p.lodz.pl>
  * @copyright  2024 TUL E-Learning Center
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

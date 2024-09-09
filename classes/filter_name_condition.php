@@ -38,7 +38,7 @@ class filter_name_condition extends condition {
     public bool $filtertext;
 
     /**
-     * Constructor to initialize the category filter condition.
+     * Constructor to initialize the filter name condition.
      *
      * @param view $qbank qbank view
      */
@@ -52,9 +52,10 @@ class filter_name_condition extends condition {
     }
 
     /**
-     * Build query from filter value
+     * Build query from filter jointype, options and values.
      *
      * @param array $filter filter properties
+     *
      * @return array where sql and params
      */
     public static function build_query_from_filter(array $filter): array {
@@ -107,24 +108,40 @@ class filter_name_condition extends condition {
         return [$where, $params];
     }
 
-    // public function get_join_list(): array {
-    //     return [
-    //         datafilter::JOINTYPE_ANY,
-    //     ];
-    // }
-
+    /**
+     * Gets condition key.
+     *
+     * @return string
+     */
     public static function get_condition_key() {
         return 'filtername';
     }
 
+    /**
+     * Gets condition title string.
+     *
+     * @return string
+     */
     public function get_title() {
         return get_string('filtername', 'qbank_filtername');
     }
 
+    /**
+     * Gets condition amd filter class.
+     *
+     * @return string
+     */
     public function get_filter_class() {
         return 'qbank_filtername/datafilter/filtertypes/search';
     }
 
+    /**
+     * Gets filter name options:
+     * - casesensitive (bool) - by default true
+     * - filtertext (bool) - by default false
+     *
+     * @return \stdClass
+     */
     public function get_filteroptions(): \stdClass {
         return (object)[
             'casesensitive' => $this->casesensitive,
@@ -132,17 +149,21 @@ class filter_name_condition extends condition {
         ];
     }
 
+    /**
+     * Allow custom set to true. Only custom values are expected.
+     *
+     * @return bool
+     */
     public function allow_custom() {
         return true;
     }
 
+    /**
+     * Allow multiple set to true.
+     *
+     * @return bool
+     */
     public function allow_multiple() {
         return true;
     }
-
-    public function is_required(): bool {
-        return false;
-    }
-
-
 }
