@@ -14,10 +14,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Filter managing display of subcategories questions.
+ * Name filter class extending Keyword filter class.
  *
  * @module     qbank_filtername/datafilter/filtertypes/search
  * @author     Mateusz Grzeszczak <mateusz.grzeszczak@p.lodz.pl>
+ * @author     Mateusz Walczak <mateusz.walczak@p.lodz.pl>
  * @copyright  2024 TUL E-Learning Center
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -38,6 +39,12 @@ export default class extends Keyword {
         this.addCheckboxes(filterOptions.filterText, filterOptions.caseSensitive);
     }
 
+    /**
+     * Add filter options checkboxes.
+     *
+     * @param {Boolean} filterText
+     * @param {Boolean} caseSensitive
+     */
     async addCheckboxes(filterText = true, caseSensitive = false) {
         const filterValueNode = this.getFilterValueNode();
         const {html} = await Templates.renderForPromise('qbank_filtername/checkboxes', {
@@ -73,5 +80,4 @@ export default class extends Keyword {
             }
         ];
     }
-
 }

@@ -132,7 +132,7 @@ class filter_name_condition extends condition {
      * @return string
      */
     public function get_filter_class() {
-        return 'qbank_filtername/datafilter/filtertypes/search';
+        return 'qbank_filtername/datafilter/filtertypes/name';
     }
 
     /**
