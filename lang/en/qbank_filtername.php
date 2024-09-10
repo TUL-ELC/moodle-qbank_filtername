@@ -25,8 +25,8 @@
  */
 
 $string['pluginname'] = 'Filter questions with name';
-$string['privacy:metadata'] = 'Filter questions with name plugin does not store any personal data.';
-$string['filtername'] = 'Phrase in name';
-$string['writetext'] = 'Type...';
 $string['casesensitive'] = 'Case sensitive';
+$string['filtername'] = 'Phrase in name';
 $string['filterquestiontext'] = 'Search question text';
+$string['privacy:metadata'] = 'Filter questions with name plugin does not store any personal data.';
+$string['writetext'] = 'Type...';

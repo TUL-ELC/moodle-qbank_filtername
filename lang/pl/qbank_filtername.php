@@ -24,8 +24,8 @@
  */
 
 $string['pluginname'] = 'Filtruj pytania po nazwie';
-$string['privacy:metadata'] = 'Wtyczka Filtruj pytania po nazwie nie przechowuje żadnych danych osobowych.';
-$string['filtername'] = 'Tekst w nazwie';
-$string['writetext'] = 'Wpisz...';
 $string['casesensitive'] = 'Rozróżniaj wielkość liter';
+$string['filtername'] = 'Tekst w nazwie';
 $string['filterquestiontext'] = 'Szukaj w treści pytania';
+$string['privacy:metadata'] = 'Wtyczka Filtruj pytania po nazwie nie przechowuje żadnych danych osobowych.';
+$string['writetext'] = 'Wpisz...';

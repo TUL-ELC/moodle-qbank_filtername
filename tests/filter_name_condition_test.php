@@ -37,7 +37,7 @@ use core_question\local\bank\view;
 use core_question\local\bank\question_edit_contexts;
 
 /**
- * @testdox Tests for filter name condition
+ * Tests for filter name condition
  *
  * @covers \local_tulprofile\tulprofile
  */
@@ -77,22 +77,22 @@ class filter_name_condition_test extends advanced_testcase {
         $shortanswerquestion = $questiongenerator->create_question('shortanswer', overrides: [
             'category' => $this->qcategory->id,
             'name' => 'shortanswer',
-            'questiontext' => ['text' => 'Short answer test question 1', 'format' => 1]
+            'questiontext' => ['text' => 'Short answer test question 1', 'format' => 1],
         ]);
         $multichoicequestion = $questiongenerator->create_question('multichoice', overrides: [
             'category' => $this->qcategory->id,
             'name' => 'MultiChoice',
-            'questiontext' => ['text' => 'Multi choice test question 2', 'format' => 1]
+            'questiontext' => ['text' => 'Multi choice test question 2', 'format' => 1],
         ]);
         $multianswerquestion = $questiongenerator->create_question('multianswer', overrides: [
             'category' => $this->qcategory->id,
             'name' => 'multianswer',
-            'questiontext' => ['text' => 'Multi answer test question 3', 'format' => 1]
+            'questiontext' => ['text' => 'Multi answer test question 3', 'format' => 1],
         ]);
         $essayquestion = $questiongenerator->create_question('essay', overrides: [
             'category' => $this->qcategory->id,
             'name' => 'Essay',
-            'questiontext' => ['text' => 'Essay test question 4', 'format' => 1]
+            'questiontext' => ['text' => 'Essay test question 4', 'format' => 1],
         ]);
         $this->questions = [
             'shortanswer' => $shortanswerquestion,
@@ -103,14 +103,18 @@ class filter_name_condition_test extends advanced_testcase {
     }
 
     /**
+     * Test filtering questions by name and question text.
+     *
      * @testdox Test filtering questions by name and question text.
      * @dataProvider params_data_provider
      *
      * @param array $params filter params
      * @param array $questions array identifying which question should be found
      * @param int $resultsnumber number of results
+     *
+     * @return void
      */
-    public function test_filter_question_by_name_and_text(array $params, array $questions, int $resultsnumber) {
+    public function test_filter_question_by_name_and_text(array $params, array $questions, int $resultsnumber): void {
         $this->resetAfterTest();
 
         // We need to extend params with context and question category ids retrieved on setUp.
@@ -139,8 +143,10 @@ class filter_name_condition_test extends advanced_testcase {
 
     /**
      * Data provider for test_filter_question_by_name_and_text().
+     *
+     * @return array
      */
-    public function params_data_provider() {
+    public static function params_data_provider(): array {
         $params = [
             "qpage" => 0,
             "qperpage" => 1000,
@@ -152,15 +158,15 @@ class filter_name_condition_test extends advanced_testcase {
                     "filteroptions" => [
                         [
                             "name" => "includesubcategories",
-                            "value" => false
-                        ]
-                    ]
+                            "value" => false,
+                        ],
+                    ],
                 ],
                 "hidden" => [
                     "name" => "hidden",
                     "jointype" => datafilter::JOINTYPE_ANY,
                     "values" => [0],
-                    "filteroptions" => []
+                    "filteroptions" => [],
                 ],
                 "filtername" => [
                     "name" => "filtername",
@@ -169,13 +175,13 @@ class filter_name_condition_test extends advanced_testcase {
                     "filteroptions" => [
                         [
                             "name" => "filtertext",
-                            "value" => true
+                            "value" => true,
                         ],
                         [
                             "name" => "casesensitive",
-                            "value" => false
-                        ]
-                    ]
+                            "value" => false,
+                        ],
+                    ],
                 ],
                 "jointype" => datafilter::JOINTYPE_ALL,
             ],
@@ -225,7 +231,7 @@ class filter_name_condition_test extends advanced_testcase {
                     'multianswer' => true,
                     'essay' => true,
                 ],
-                'resultsnumber' => 4
+                'resultsnumber' => 4,
             ],
             'Case-insensitive filtering by name and text with "short" phrase.' => [
                 'params' => $params2,
@@ -235,7 +241,7 @@ class filter_name_condition_test extends advanced_testcase {
                     'multianswer' => false,
                     'essay' => false,
                 ],
-                'resultsnumber' => 1
+                'resultsnumber' => 1,
             ],
             'Case-insensitive filtering by name and text with "short" or "multi" phrases.' => [
                 'params' => $params3,
@@ -245,7 +251,7 @@ class filter_name_condition_test extends advanced_testcase {
                     'multianswer' => true,
                     'essay' => false,
                 ],
-                'resultsnumber' => 3
+                'resultsnumber' => 3,
             ],
             'Case-insensitive filtering by name and text with "multi" and "choice" phrases.' => [
                 'params' => $params4,
@@ -255,7 +261,7 @@ class filter_name_condition_test extends advanced_testcase {
                     'multianswer' => false,
                     'essay' => false,
                 ],
-                'resultsnumber' => 1
+                'resultsnumber' => 1,
             ],
             'Case-insensitive filtering by name and text without "multi" and "answer" phrases.' => [
                 'params' => $params5,
@@ -265,7 +271,7 @@ class filter_name_condition_test extends advanced_testcase {
                     'multianswer' => false,
                     'essay' => true,
                 ],
-                'resultsnumber' => 1
+                'resultsnumber' => 1,
             ],
             'Case-sensitive filtering by name and text with "Test" phrase.' => [
                 'params' => $params6,
@@ -275,7 +281,7 @@ class filter_name_condition_test extends advanced_testcase {
                     'multianswer' => false,
                     'essay' => false,
                 ],
-                'resultsnumber' => 0
+                'resultsnumber' => 0,
             ],
             'Case-insensitive filtering by name with "question" phrase.' => [
                 'params' => $params7,
@@ -285,7 +291,7 @@ class filter_name_condition_test extends advanced_testcase {
                     'multianswer' => false,
                     'essay' => false,
                 ],
-                'resultsnumber' => 0
+                'resultsnumber' => 0,
             ],
             'Case-sensitive filtering by name with "Essay" phrase.' => [
                 'params' => $params8,
@@ -295,7 +301,7 @@ class filter_name_condition_test extends advanced_testcase {
                     'multianswer' => false,
                     'essay' => true,
                 ],
-                'resultsnumber' => 1
+                'resultsnumber' => 1,
             ],
             'Case-sensitive filtering by name with "Essay" or "multi" phrases.' => [
                 'params' => $params9,
@@ -305,8 +311,8 @@ class filter_name_condition_test extends advanced_testcase {
                     'multianswer' => true,
                     'essay' => true,
                 ],
-                'resultsnumber' => 2
-            ]
+                'resultsnumber' => 2,
+            ],
         ];
     }
 }
