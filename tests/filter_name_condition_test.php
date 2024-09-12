@@ -39,9 +39,9 @@ use core_question\local\bank\question_edit_contexts;
 /**
  * Tests for filter name condition
  *
- * @covers \local_tulprofile\tulprofile
+ * @covers \qbank_filtername\filter_name_condition
  */
-class filter_name_condition_test extends advanced_testcase {
+final class filter_name_condition_test extends advanced_testcase {
 
     /** @var stdClass course record. */
     protected stdClass $course;
@@ -105,7 +105,6 @@ class filter_name_condition_test extends advanced_testcase {
     /**
      * Test filtering questions by name and question text.
      *
-     * @testdox Test filtering questions by name and question text.
      * @dataProvider params_data_provider
      *
      * @param array $params filter params
