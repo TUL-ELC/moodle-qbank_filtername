@@ -62,6 +62,8 @@ final class filter_name_condition_test extends advanced_testcase {
      * Set up testcase with course and questions.
      */
     public function setUp(): void {
+        parent::setUp();
+
         $this->resetAfterTest();
         $this->setAdminUser();
 
