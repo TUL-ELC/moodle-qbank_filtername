@@ -27,7 +27,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'qbank_filtername';
-$plugin->version   = 2024111400;
+$plugin->version   = 2024111401;
 $plugin->requires  = 2023100900;
 $plugin->maturity = MATURITY_STABLE;
-$plugin->release = '1.0.3';
+$plugin->release = '1.0.4';
